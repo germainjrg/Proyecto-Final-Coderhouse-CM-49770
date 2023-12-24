@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coderhouse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="cargarEstados()">
+    <h1>Pre entrega #3: CM-49770 <br> Estudiante: Germain Ramírez</h1>
+    <h2>Centro de control del hogar</h2>
+    <table width="50%">
+        <thead>
+            <tr>
+                <th colspan="3">Equipos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <img src="./imgEquipos/Luces.png" width="100"><br>
+                    Luces<br>
+                    <button type="button" id="botonLuces" style="margin-right: 3px">Encender</button>
+                    <input value="" type="text" id="estadoLuces" readonly="readonly" style="width:75px">
+                    
+                </td>
+                <td>
+                    <img src="./imgEquipos/Lavadora.png" width="100"><br>
+                    Lavadora<br>
+                    <button type="button" id="botonLavadora">Encender</button>
+                    <input value="" type="text" id="estadoLavadora" readonly="readonly" />
+                </td>
+                <td>
+                    <img src="./imgEquipos/Secadora.png" width="100"><br>
+                    Secadora<br>
+                    <button type="button" id="botonSecadora">Encender</button>
+                    <input value="" type="text" id="estadoSecadora" readonly="readonly" style="width:75px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./imgEquipos/Cocina.png" width="100"><br>
+                    Cocina<br>
+                    <button type="button" id="botonCocina">Encender</button>
+                    <input value="" type="text" id="estadoCocina" readonly="readonly" style="width:75px"/>
+                </td>
+                <td>
+                    <img src="./imgEquipos/Lavavajillas.png" width="100"><br>
+                    Lavavajillas<br>
+                    <button type="button" id="botonLavavajillas">Encender</button>
+                    <input value="" type="text" id="estadoLavavajillas" readonly="readonly" style="width:75px"/>
+                </td>
+                <td>
+                    <img src="./imgEquipos/Refrigeradora.png" width="100"><br>
+                    Refrigeradora<br>
+                    <button type="button" id="botonRefrigeradora">Encender</button>
+                    <input value="" type="text" id="estadoRefrigeradora" readonly="readonly" style="width:75px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./imgEquipos/Computadora.png" width="100"><br>
+                    Computadora<br>
+                    <button type="button" id="botonComputadora">Encender</button>
+                    <input value="" type="text" id="estadoComputadora" readonly="readonly" style="width:75px"/>
+                </td>
+                <td>
+                    <img src="./imgEquipos/Televisor.png" width="100"><br>
+                    Televisor<br>
+                    <button type="button" id="botonTelevisor">Encender</button>
+                    <input value="" type="text" id="estadoTelevisor" readonly="readonly" style="width:75px"/>
+                </td>
+                <td>
+                    <img src="./imgEquipos/Sonido.png" width="100"><br>
+                    Sonido<br>
+                    <button type="button" id="botonSonido">Encender</button>
+                    <input value="" type="text" id="estadoSonido" readonly="readonly" style="width:75px"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
