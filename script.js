@@ -1,10 +1,9 @@
-import Swal from 'sweetalert2'
-const Swal = require('sweetalert2')
-
 const encendido = "Encendido";
 const apagado = "Apagado";
 const apagar = "Apagar"
 const encender = "Encender";
+
+
 
 function equipo (estado, idBoton, idEstadoMostrado, textoBoton) {
     this.estado = estado;
@@ -123,10 +122,11 @@ luces.boton.addEventListener("click", function() {
 
     Swal.fire({
         title: 'Cambio de estado',
-        text: 'Has cambiado las luces',
+        text: 'Has ' + luces.estadoMostrado.value.toUpperCase() + " las luces con exito.",
         icon: 'success',
-        confirmButtonText: 'Cool'
-      })
+    })
+
+    fetch ()
 });
 
 //Se espera el evento del boton de LAVADORA

@@ -1,10 +1,11 @@
 body {
     font-family: Helvetica;
     padding: 0;
+    background-color: #bce4ff;
 }
 
 h1 {
-    color: #3c70b4;
+    color: #fe0000;
     font-size: large;
     text-align: left;
 }
@@ -22,6 +23,7 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
     color: #ff0000;
+    background-color: #f0f0f0;
 }
 
 th, td {
