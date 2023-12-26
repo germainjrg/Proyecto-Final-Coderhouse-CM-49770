@@ -3,7 +3,7 @@ const apagado = "Apagado";
 const apagar = "Apagar"
 const encender = "Encender";
 
-
+urlConsulta = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=7d43a37acd990b4d760028a9bc552b3a";
 
 function equipo (estado, idBoton, idEstadoMostrado, textoBoton) {
     this.estado = estado;
@@ -126,7 +126,10 @@ luces.boton.addEventListener("click", function() {
         icon: 'success',
     })
 
-    fetch ()
+    fetch(urlConsulta)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 });
 
 //Se espera el evento del boton de LAVADORA
