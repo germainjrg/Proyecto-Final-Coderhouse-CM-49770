@@ -34,6 +34,20 @@ function cambiarColor(estadoEquipo, idElementoHTML) {
 
 
 function cargarEstados (){
+
+    //carga de temperatura
+    fetch(urlConsultaLima)
+    .then(response => response.json())
+    //.then(data => console.table(data))
+    .then(data => {
+        const temperatura = data.current
+        console.log(temperatura.temperature_2m)
+
+        let indicador = document.getElementById("indicadorDeTemperatura")
+        indicador.textContent += temperatura.temperature_2m + " °C"
+    })
+    .catch(error => console.error('Error:', error))
+
     // CARGAR ESTADO DE LUCES
     let estadoLucesGuardado_jsonstring = localStorage.getItem("estadoLuces");
     let estadoLucesRecuperado = JSON.parse(estadoLucesGuardado_jsonstring);
@@ -126,14 +140,6 @@ luces.boton.addEventListener("click", function() {
         icon: 'success',
     })
 
-    fetch(urlConsultaLima)
-    .then(response => response.json())
-    //.then(data => console.table(data))
-    .then(data => {
-        const temperatura = data.current
-        console.log(temperatura.temperature_2m)
-    })
-    .catch(error => console.error('Error:', error));
 });
 
 //Se espera el evento del boton de LAVADORA
