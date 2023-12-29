@@ -28,21 +28,18 @@ let botonGuardar = document.getElementById("botonGuardar");
 let botonContar = document.getElementById("botonConteo");
 
 
-
 function cambiarColor(estadoEquipo, idElementoHTML) {
     let elemento = document.getElementById(idElementoHTML);
     elemento.style.backgroundColor = (estadoEquipo == encendido) ? "green" : "red";
 }
 
 function actualizarEquiposEncendidos() {
-    let totalEquiposEncendidos = 0
+    let totalEquiposEncendidos
     
     for (aparato of equiposDeCasa){
         totalEquiposEncendidos += aparato.estado == encendido ? 1 : 0
     }
 
-    //console.log(totalEquiposEncendidos)
-    
     let indicadorDeEquiposEncendidos = document.getElementById("cantidadDeEquiposEncendidos")
     indicadorDeEquiposEncendidos.textContent = "Equipos encendidos en este momento: " + totalEquiposEncendidos;
 }
@@ -61,6 +58,8 @@ function cargarEstados (){
         indicador.textContent += temperatura.temperature_2m + " °C"
     })
     .catch(error => console.error('Error: No se pudo conseguir la temperatura.', error))
+
+    actualizarEquiposEncendidos();
 
     // CARGAR ESTADO DE LUCES
     let estadoLucesGuardado_jsonstring = localStorage.getItem("estadoLuces");
