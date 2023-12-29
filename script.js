@@ -27,11 +27,25 @@ let equiposDeCasa = [luces,lavadora,secadora,cocina,lavavajillas,refrigeradora,c
 let botonGuardar = document.getElementById("botonGuardar");
 let botonContar = document.getElementById("botonConteo");
 
+
+
 function cambiarColor(estadoEquipo, idElementoHTML) {
     let elemento = document.getElementById(idElementoHTML);
     elemento.style.backgroundColor = (estadoEquipo == encendido) ? "green" : "red";
 }
 
+function actualizarEquiposEncendidos() {
+    let totalEquiposEncendidos = 0
+    
+    for (aparato of equiposDeCasa){
+        totalEquiposEncendidos += aparato.estado == encendido ? 1 : 0
+    }
+
+    //console.log(totalEquiposEncendidos)
+    
+    let indicadorDeEquiposEncendidos = document.getElementById("cantidadDeEquiposEncendidos")
+    indicadorDeEquiposEncendidos.textContent = "Equipos encendidos en este momento: " + totalEquiposEncendidos;
+}
 
 function cargarEstados (){
 
@@ -41,12 +55,12 @@ function cargarEstados (){
     //.then(data => console.table(data))
     .then(data => {
         const temperatura = data.current
-        console.log(temperatura.temperature_2m)
+        //console.log(temperatura.temperature_2m)
 
         let indicador = document.getElementById("indicadorDeTemperatura")
         indicador.textContent += temperatura.temperature_2m + " °C"
     })
-    .catch(error => console.error('Error:', error))
+    .catch(error => console.error('Error: No se pudo conseguir la temperatura.', error))
 
     // CARGAR ESTADO DE LUCES
     let estadoLucesGuardado_jsonstring = localStorage.getItem("estadoLuces");
@@ -140,6 +154,7 @@ luces.boton.addEventListener("click", function() {
         icon: 'success',
     })
 
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de LAVADORA
@@ -153,6 +168,14 @@ lavadora.boton.addEventListener("click", function() {
     lavadora.estado = estadoGuardado;
     let lavadoraJSON = JSON.stringify(lavadora);
     localStorage.setItem("estadoLavadora", lavadoraJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + lavadora.estadoMostrado.value.toUpperCase() + " la lavadora con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de SECADORA
@@ -166,6 +189,14 @@ secadora.boton.addEventListener("click", function() {
     secadora.estado = estadoGuardado;
     let secadoraJSON = JSON.stringify(secadora);
     localStorage.setItem("estadoSecadora", secadoraJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + secadora.estadoMostrado.value.toUpperCase() + " la secadora con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de COCINA
@@ -179,6 +210,14 @@ cocina.boton.addEventListener("click", function() {
     cocina.estado = estadoGuardado;
     let cocinaJSON = JSON.stringify(cocina);
     localStorage.setItem("estadoCocina", cocinaJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + cocina.estadoMostrado.value.toUpperCase() + " la cocina con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de LAVAVAJILLAS
@@ -192,6 +231,14 @@ lavavajillas.boton.addEventListener("click", function() {
     lavavajillas.estado = estadoGuardado;
     let lavavajillasJSONJSON = JSON.stringify(lavavajillas);
     localStorage.setItem("estadoLavavajillas", lavavajillasJSONJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + lavavajillas.estadoMostrado.value.toUpperCase() + " el lavavajillas con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de refrigeradora
@@ -205,6 +252,14 @@ refrigeradora.boton.addEventListener("click", function() {
     refrigeradora.estado = estadoGuardado;
     let refrigeradoraJSON = JSON.stringify(refrigeradora);
     localStorage.setItem("estadoRefrigeradora", refrigeradoraJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + refrigeradora.estadoMostrado.value.toUpperCase() + " la refrigeradora con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de computadora
@@ -218,6 +273,14 @@ computadora.boton.addEventListener("click", function() {
     computadora.estado = estadoGuardado;
     let computadoraJSON = JSON.stringify(computadora);
     localStorage.setItem("estadoComputadora", computadoraJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + computadora.estadoMostrado.value.toUpperCase() + " la computadora con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de televisor
@@ -231,6 +294,14 @@ televisor.boton.addEventListener("click", function() {
     televisor.estado = estadoGuardado;
     let televisorJSON = JSON.stringify(televisor);
     localStorage.setItem("estadoTelevisor", televisorJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + televisor.estadoMostrado.value.toUpperCase() + " el televisor con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 //Se espera el evento del boton de Sonido
@@ -244,6 +315,14 @@ sonido.boton.addEventListener("click", function() {
     sonido.estado = estadoGuardado;
     let sonidoJSON = JSON.stringify(sonido);
     localStorage.setItem("estadoSonido", sonidoJSON);
+
+    Swal.fire({
+        title: 'Cambio de estado',
+        text: 'Has ' + sonido.estadoMostrado.value.toUpperCase() + " el sonido con exito.",
+        icon: 'success',
+    })
+
+    actualizarEquiposEncendidos();
 });
 
 
