@@ -3,7 +3,7 @@ const apagado = "Apagado";
 const apagar = "Apagar"
 const encender = "Encender";
 
-urlConsulta = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=7d43a37acd990b4d760028a9bc552b3a";
+urlConsultaLima = "https://api.open-meteo.com/v1/forecast?latitude=-12.06&longitude=-77.0375&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m";
 
 function equipo (estado, idBoton, idEstadoMostrado, textoBoton) {
     this.estado = estado;
@@ -126,9 +126,13 @@ luces.boton.addEventListener("click", function() {
         icon: 'success',
     })
 
-    fetch(urlConsulta)
+    fetch(urlConsultaLima)
     .then(response => response.json())
-    .then(data => console.log(data))
+    //.then(data => console.table(data))
+    .then(data => {
+        const temperatura = data.current
+        console.log(temperatura.temperature_2m)
+    })
     .catch(error => console.error('Error:', error));
 });
 
