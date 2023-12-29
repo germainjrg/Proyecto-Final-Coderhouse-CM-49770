@@ -24,9 +24,6 @@ let sonido = new equipo (apagado, "botonSonido", "estadoSonido", encender);
 
 let equiposDeCasa = [luces,lavadora,secadora,cocina,lavavajillas,refrigeradora,computadora,televisor,sonido];
 
-let botonGuardar = document.getElementById("botonGuardar");
-let botonContar = document.getElementById("botonConteo");
-
 
 function cambiarColor(estadoEquipo, idElementoHTML) {
     let elemento = document.getElementById(idElementoHTML);
